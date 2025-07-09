@@ -9,4 +9,10 @@ defmodule PhxPlaygroundWeb.HelloController do
     # Views acts as a presentation layer.
     render(conn, :index)
   end
+
+  # In the parameters of the action function we do pattern matching.
+  def show(conn, %{"messenger" => messenger} = params) do
+    # Here we passed a third value which is just a key value pair whose key is an atom.
+    render(conn, :show, messenger: messenger)
+  end
 end

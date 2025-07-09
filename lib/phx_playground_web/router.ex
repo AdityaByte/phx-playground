@@ -19,6 +19,9 @@ defmodule PhxPlaygroundWeb.Router do
 
     get "/", PageController, :home
     get "/hello", HelloController, :index
+    # Request verb endpoint, Controller, :action(handler function)
+    # The :messenger is just a parameter the phoenix will take value and convert that into param.
+    get "/hello/:messenger", HelloController, :show
   end
 
   # Other scopes may use custom stacks.
