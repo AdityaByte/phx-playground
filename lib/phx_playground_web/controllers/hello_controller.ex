@@ -11,7 +11,7 @@ defmodule PhxPlaygroundWeb.HelloController do
   end
 
   # In the parameters of the action function we do pattern matching.
-  def show(conn, %{"messenger" => messenger} = params) do
+  def show(conn, %{"messenger" => messenger} = _params) do
     # Here we passed a third value which is just a key value pair whose key is an atom.
     render(conn, :show, messenger: messenger)
   end

@@ -1,6 +1,7 @@
 defmodule PhxPlaygroundWeb.Router do
   use PhxPlaygroundWeb, :router
 
+  # Plugs are defined inside the pipeline.
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,12 +9,14 @@ defmodule PhxPlaygroundWeb.Router do
     plug :put_root_layout, html: {PhxPlaygroundWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug PhxPlaygroundWeb.Plugs.Locale, "en" # en is the default value that i passed.
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
+  # Routes are defined inside the scope.
   scope "/", PhxPlaygroundWeb do
     pipe_through :browser
 
